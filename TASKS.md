@@ -1,7 +1,7 @@
 # TASKS — Dentista
 
 ## Estado actual
-- Última: T01 · Siguiente: T02
+- Última: T02 · Siguiente: T03 (T04 también disponible)
 - Pendiente/bloqueos: crear repositorio git y en GitHub antes de T01/T03.
 
 ## Progresión
@@ -21,7 +21,7 @@
 - TDD: no
 - Hecho cuando: `npm run lint`, `npm run typecheck`, `npm test` y `npm run dev` funcionan, con un test de ejemplo que pasa.
 
-## T02 — Comprobaciones automáticas locales [todo]
+## T02 — Comprobaciones automáticas locales [done]
 - Objetivo: `.claude/settings.json` con permisos (permitir test/lint/git diff; denegar `.env` y `rm -rf`) y hooks (Prettier tras cada edición; tests al terminar).
 - Archivos: `.claude/settings.json`, `.claude/hooks/`
 - Depende de: T01

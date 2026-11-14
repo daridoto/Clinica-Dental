@@ -1,0 +1,56 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test)",
+      "Bash(npm run test:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run typecheck)",
+      "Bash(git diff:*)",
+      "Bash(git status:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Edit(./.env)",
+      "Edit(./.env.*)",
+      "Write(./.env)",
+      "Write(./.env.*)",
+      "Bash(cat *.env*)",
+      "Bash(head *.env*)",
+      "Bash(tail *.env*)",
+      "Bash(less *.env*)",
+      "Bash(more *.env*)",
+      "Bash(grep *.env*)",
+      "Bash(sed *.env*)",
+      "Bash(source *.env*)",
+      "Bash(rm -r*)",
+      "Bash(rm -R*)",
+      "Bash(rm -fr*)",
+      "Bash(rm -fR*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/format.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/run-tests.sh",
+            "timeout": 300
+          }
+        ]
+      }
+    ]
+  }
+}
